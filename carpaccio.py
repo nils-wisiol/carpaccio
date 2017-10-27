@@ -44,6 +44,6 @@ state = check_isstate(user_input("state", str))
 print("state: %s" % state)
 
 tax = price * qty * tax_rates[state]
-total = price * qty
-print("tax:         %.2f" % tax)
-print("total price: %.2f" % total)
+total = price * qty * (1+tax_rates[state])
+print("tax:         %8.2f" % tax)
+print("total price: %8.2f" % total)
