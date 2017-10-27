@@ -1,14 +1,22 @@
 import sys
 
-price = 0
-try:
-    price = float(input("item price? "))
-except ValueError:
-    print("could not understand price")
-    exit(1)
+def user_input(name):
+    value = 0
+    try:
+        value = float(input("%s? " % name))
+    except ValueError:
+        print("could not understand %s" % name)
+        exit(1)
 
-if price < 0:
-    print("price must be non-negative")
-    exit(1)
+    if value < 0:
+        print("%s must be non-negative" % name)
+        exit(1)
 
+    return value
+
+
+price = user_input("price")
 print("item price: %.2f" % price)
+
+qty = user_input("quantity")
+print("quantity: %.2f" % qty)
