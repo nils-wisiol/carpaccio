@@ -43,5 +43,7 @@ print("quantity: %.2f" % qty)
 state = check_isstate(user_input("state", str))
 print("state: %s" % state)
 
+tax = price * qty * tax_rates[state]
 total = price * qty
-print("\ntotal price: %.2f" % total)
+print("tax:         %.2f" % tax)
+print("total price: %.2f" % total)
