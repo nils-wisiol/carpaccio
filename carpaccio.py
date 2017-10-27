@@ -1,6 +1,14 @@
 import sys
 
 
+tax_rates = {
+    "UT": .0685,
+    "NV": .08,
+    "TX": .0625,
+    "AL": .04,
+    "CA": .0825,
+}
+
 def user_input(name, input_type):
     value = 0
     try:
