@@ -27,13 +27,20 @@ def check_nonnegative(value, name):
     return value
 
 
+def check_isstate(value):
+    if value not in tax_rates.keys():
+        print("%s was not recognized as a state" % value)
+        exit(1)
+    return value
+
+
 price = check_nonnegative(user_input("price", float), "price")
 print("item price: %.2f" % price)
 
 qty = check_nonnegative(user_input("quantity", float), "quantity")
 print("quantity: %.2f" % qty)
 
-state = user_input("state", str)
+state = check_isstate(user_input("state", str))
 print("state: %s" % state)
 
 total = price * qty
