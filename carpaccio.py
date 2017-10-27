@@ -9,6 +9,14 @@ tax_rates = {
     "CA": .0825,
 }
 
+discount = {
+    1000: .03,
+    5000: .05,
+    7000: .07,
+    10000: .1,
+    50000: .15,
+}
+
 def user_input(name, input_type):
     value = 0
     try:
