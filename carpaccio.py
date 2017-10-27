@@ -20,3 +20,6 @@ print("item price: %.2f" % price)
 
 qty = user_input("quantity")
 print("quantity: %.2f" % qty)
+
+total = price * qty
+print("\ntotal price: %.2f" % total)
