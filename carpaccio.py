@@ -10,11 +10,11 @@ tax_rates = {
 }
 
 discount = {
-    1000: .03,
-    5000: .05,
-    7000: .07,
-    10000: .1,
     50000: .15,
+    10000: .1,
+    7000: .07,
+    5000: .05,
+    1000: .03,
 }
 
 def user_input(name, input_type):
@@ -42,6 +42,13 @@ def check_isstate(value):
     return value
 
 
+def get_discount(total):
+    for threshold in discount.keys():
+        if total >= threshold:
+            return total * discount[threshold]
+    return 0
+        
+
 price = check_nonnegative(user_input("price", float), "price")
 print("item price: %.2f" % price)
 
@@ -52,6 +59,9 @@ state = check_isstate(user_input("state", str))
 print("state: %s" % state)
 
 tax = price * qty * tax_rates[state]
-total = price * qty * (1+tax_rates[state])
+subtotal = price * qty * (1 + tax_rates[state])
+discount = get_discount(subtotal)
+total = subtotal - discount
 print("tax:         %8.2f" % tax)
+print("discount:    %8.2f" % discount)
 print("total price: %8.2f" % total)
